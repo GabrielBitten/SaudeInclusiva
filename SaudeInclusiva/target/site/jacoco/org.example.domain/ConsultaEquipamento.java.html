@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsultaEquipamento.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SaudeInclusiva</a> &gt; <a href="index.source.html" class="el_package">org.example.domain</a> &gt; <span class="el_source">ConsultaEquipamento.java</span></div><h1>ConsultaEquipamento.java</h1><pre class="source lang-java linenums">package org.example.domain;
+
+import org.example.domain.enums.Equipamentos;
+
+import java.time.LocalDate;
+
+public class ConsultaEquipamento extends Consulta{
+    public ConsultaEquipamento(LocalDate dataConsulta, Integer idConsulta, Medico medico, Paciente paciente, Equipamentos equipamentos) {
+<span class="nc" id="L9">        super(dataConsulta, idConsulta, medico, paciente, equipamentos);</span>
+<span class="nc" id="L10">    }</span>
+@Override
+    public void imprimirDetalhes() {
+<span class="nc" id="L13">        System.out.println(&quot;---DETALHES DA CONSULTA PARA DEFINIR O EQUIPAMENTO:---&quot;);</span>
+<span class="nc" id="L14">        System.out.println(&quot;Nome do Paciente: &quot; + super.getPaciente().getCadastro().getNome());</span>
+<span class="nc" id="L15">        System.out.println(&quot;Equipamento Requerido da Consulta: &quot; + super.getEquipamentos());</span>
+<span class="nc" id="L16">        System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L17">        System.out.println(&quot;Nome do Médico: &quot; + super.getMedico().getNome());</span>
+<span class="nc" id="L18">        System.out.println(&quot;Especialização do Médico: &quot; + super.getMedico().getEspecializacao());</span>
+<span class="nc" id="L19">        System.out.println(&quot;&quot;);</span>
+<span class="nc" id="L20">        System.out.println(&quot;Data da Consulta: &quot; + super.getDataConsulta());</span>
+<span class="nc" id="L21">    }</span>
+
+    @Override
+    public void definirMedico() {
+<span class="nc" id="L25">        super.definirMedico();</span>
+<span class="nc" id="L26">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

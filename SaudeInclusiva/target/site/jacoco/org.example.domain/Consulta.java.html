@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Consulta.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SaudeInclusiva</a> &gt; <a href="index.source.html" class="el_package">org.example.domain</a> &gt; <span class="el_source">Consulta.java</span></div><h1>Consulta.java</h1><pre class="source lang-java linenums">package org.example.domain;
+
+import org.example.domain.enums.Equipamentos;
+
+import java.time.LocalDate;
+
+public class Consulta implements Consultador{
+
+    private LocalDate dataConsulta;
+
+    private Integer idConsulta;
+
+    private Medico medico;
+
+    private Paciente paciente;
+
+    private Equipamentos equipamentos;
+
+<span class="fc" id="L19">    public Consulta(LocalDate dataConsulta, Integer idConsulta, Medico medico, Paciente paciente, Equipamentos equipamentos) {</span>
+<span class="fc" id="L20">        this.dataConsulta = dataConsulta;</span>
+<span class="fc" id="L21">        this.idConsulta = idConsulta;</span>
+<span class="fc" id="L22">        this.medico = medico;</span>
+<span class="fc" id="L23">        this.paciente = paciente;</span>
+<span class="fc" id="L24">        this.equipamentos = equipamentos;</span>
+<span class="fc" id="L25">    }</span>
+
+    public LocalDate getDataConsulta() {
+<span class="fc" id="L28">        return dataConsulta;</span>
+    }
+
+    public Integer getIdConsulta() {
+<span class="fc" id="L32">        return idConsulta;</span>
+    }
+
+    public Medico getMedico() {
+<span class="fc" id="L36">        return medico;</span>
+    }
+
+    public void setMedico(Medico medico) {
+<span class="fc" id="L40">        this.medico = medico;</span>
+<span class="fc" id="L41">    }</span>
+
+    public Paciente getPaciente() {
+<span class="fc" id="L44">        return paciente;</span>
+    }
+
+<span class="fc" id="L47">    public Equipamentos getEquipamentos(){ return equipamentos; }</span>
+
+
+    @Override
+    public void imprimirDetalhes() {
+<span class="fc" id="L52">        System.out.println(&quot;---DETALHES DA CONSULTA:---&quot;);</span>
+<span class="fc" id="L53">        System.out.println(&quot;Nome do Paciente: &quot; + paciente.getCadastro().getNome());</span>
+<span class="fc" id="L54">        System.out.println(&quot;&quot;);</span>
+<span class="fc" id="L55">        System.out.println(&quot;Nome do Médico: &quot; + medico.getNome());</span>
+<span class="fc" id="L56">        System.out.println(&quot;Especialização do Médico: &quot; + medico.getEspecializacao());</span>
+<span class="fc" id="L57">        System.out.println(&quot;&quot;);</span>
+<span class="fc" id="L58">        System.out.println(&quot;Data da Consulta: &quot; + dataConsulta);</span>
+<span class="fc" id="L59">    }</span>
+
+    @Override
+    public void definirMedico() {
+<span class="pc bpc" id="L63" title="4 of 5 branches missed.">        switch (equipamentos){</span>
+<span class="fc" id="L64">            case MULETA, ANDADOR, PROTESE, ORTESE, CADEIRA_DE_RODAS : medico.setEspecializacao(Medico.Especializacao.ORTOPEDISTA);</span>
+<span class="fc" id="L65">            break;</span>
+<span class="nc" id="L66">            case APARELHO_AUDITIVO : medico.setEspecializacao(Medico.Especializacao.OTORRINOLARINGOLOGISTA);</span>
+<span class="nc" id="L67">            break;</span>
+<span class="nc" id="L68">            case CADEIRA_HIGIENICA : medico.setEspecializacao(Medico.Especializacao.UROLOGISTA);</span>
+<span class="nc" id="L69">            break;</span>
+<span class="nc" id="L70">            case NENHUM : medico.setEspecializacao(Medico.Especializacao.GERAL);</span>
+            break;
+        }
+<span class="fc" id="L73">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

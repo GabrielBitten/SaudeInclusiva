@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SaudeInclusiva</a> &gt; <a href="index.source.html" class="el_package">org.example</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package org.example;
+
+import org.example.domain.*;
+import org.example.domain.enums.Equipamentos;
+
+import java.time.LocalDate;
+import java.util.List;
+
+<span class="nc" id="L9">public class Main {</span>
+    public static void main(String[] args) {
+
+        //--------FAZER CADASTRO
+<span class="nc" id="L13">        Cadastro cadastroVazio = new Cadastro();</span>
+        //cadastroVazio.cadastrarPaciente();
+
+<span class="nc" id="L16">        Cadastro cadastro1 = new Cadastro(&quot;Roberto&quot;,50,LocalDate.of(1973, 3, 29),&quot;billten@gmail.com&quot;, &quot;123456&quot;);</span>
+<span class="nc" id="L17">        Cadastro cadastro2 = new Cadastro(&quot;Roger&quot;,40, LocalDate.of(1983, 3, 11),&quot;sanidadegamer@gmail.com&quot;, &quot;987456&quot;);</span>
+
+        //--------MARCAR CONSULTA
+
+<span class="nc" id="L21">        Medico medico1 = new Medico(&quot;Antonio&quot;, 40, 1100, null);</span>
+<span class="nc" id="L22">        Medico medico2 = new Medico(&quot;Valmir&quot;, 45, 1220, null);</span>
+<span class="nc" id="L23">        Paciente paciente1 = new Paciente(22211, cadastro1);</span>
+<span class="nc" id="L24">        Paciente paciente2 = new Paciente(22300, cadastro2);</span>
+<span class="nc" id="L25">        Paciente paciente3 = new Paciente(22444, cadastroVazio);</span>
+
+<span class="nc" id="L27">        Consulta consulta = new Consulta(LocalDate.of(2023, 12, 1), 444400, medico1, paciente1, Equipamentos.NENHUM);</span>
+
+        //--------Lista dos pacientes cadastrados na consulta
+<span class="nc" id="L30">        Agenda agenda = new Agenda();</span>
+<span class="nc" id="L31">        agenda.adicionarPaciente(paciente1);</span>
+<span class="nc" id="L32">        agenda.adicionarPaciente(paciente2);</span>
+<span class="nc" id="L33">        agenda.adicionarPaciente(paciente3);</span>
+
+<span class="nc" id="L35">        List&lt;Paciente&gt; pacientes = agenda.listarPacientes();</span>
+        //agenda.imprimirListaPacientes(pacientes);
+
+<span class="nc" id="L38">        Integer consultaId = consulta.getIdConsulta();</span>
+<span class="nc" id="L39">        Integer medicoId = consulta.getMedico().getIdMedico();</span>
+<span class="nc" id="L40">        Integer pacienteId = consulta.getPaciente().getIdPaciente();</span>
+
+<span class="nc" id="L42">        System.out.println(&quot;&quot;);</span>
+
+        //consulta.definirMedico();
+        //consulta.imprimirDetalhes();
+        //paciente1.imprimirInformacoesPaciente();
+
+<span class="nc" id="L48">        ConsultaEquipamento consultaEquipamento = new ConsultaEquipamento(LocalDate.of</span>
+<span class="nc" id="L49">                (2023, 12, 12), 555500, medico2, paciente1, Equipamentos.ANDADOR);</span>
+
+<span class="nc" id="L51">        consultaEquipamento.definirMedico();</span>
+<span class="nc" id="L52">        consultaEquipamento.imprimirDetalhes();</span>
+<span class="nc" id="L53">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
